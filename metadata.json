@@ -1,0 +1,32 @@
+{
+  "name": "puppet-gitblit",
+  "version": "0.0.1",
+  "author": "Ronen Narkis",
+  "summary": "Pulling Strings Gitblit Module",
+  "license": "Apache-2.0",
+  "source": "https://github.com/puling-strings/puppet-gitblit",
+  "project_page": "https://github.com/puling-strings/puppet-gitblit",
+  "issues_url": "https://github.com/puling-strings/puppet-gitblit",
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [
+        "14.04",
+        "14.10"
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "name": "pe",
+      "version_requirement": "3.x"
+    },
+    {
+      "name": "puppet",
+      "version_requirement": "3.x"
+    }
+  ],
+  "dependencies": [
+    {"name":"puppetlabs/stdlib","version_requirement":">= 2.2.1"}
+  ]
+}
