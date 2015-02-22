@@ -5,9 +5,7 @@ This module sets up [Gitblit](http://gitblit.com/)
 # Usage
 
 ```puppet
-
 include gitblit
-
 ```
 
 Configure using hiera:
