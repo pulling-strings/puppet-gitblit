@@ -10,8 +10,8 @@ class gitblit::config(
   Editfile <||> ~> Service['gitblit']
 
   editfile::config { 'repo folder':
-    ensure => $repo_folder,
-    entry  => 'git.repositoriesFolder',
+    ensure => " ${repo_folder}",
+    entry  => 'git.repositoriesFolder ',
     path   => '/opt/gitblit/data/gitblit.properties',
     quote  => false
   }
