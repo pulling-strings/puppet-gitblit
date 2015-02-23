@@ -5,10 +5,11 @@
 # Managing a gitblit instance
 # $password is the admin password
 class gitblit(
-  $version = '1.6.2'
+  $version = '1.6.2',
+  $users = {}
 ){
 
-  include gitblit::user
+  create_resources(gitblit::user, $users)
 
   class{'jdk':
     version => 7
