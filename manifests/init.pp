@@ -1,13 +1,10 @@
-# Class: gitblit
-#
 # This module manages gitblit
-#
-# Managing a gitblit instance
-# $password is the admin password
 class gitblit(
   $version = '1.6.2',
   $users = {}
 ){
+
+  include gitblit::config
 
   create_resources(gitblit::user, $users)
 
@@ -22,14 +19,6 @@ class gitblit(
     digest_string    => '12158ff9d28a9cfaa209bed690796fe8',
     follow_redirects => true
   } ->
-
-  editfile { 'local host unbind':
-    ensure   => absent,
-    provider => regexp,
-    path     => '/opt/gitblit/data/gitblit.properties',
-    match    => '/server.httpsBindInterface.*/',
-    notify   => Service['gitblit']
-  }
 
   file { '/etc/init.d/gitblit':
     ensure => file,
