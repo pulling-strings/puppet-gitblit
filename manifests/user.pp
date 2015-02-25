@@ -18,10 +18,14 @@ define gitblit::user(
     require => Archive["gitblit-${::gitblit::version}"]
   } ~> Service['gitblit']
 
+  file{'/opt/gitblit/data/ssh/':
+     ensure => directory,
+    require => Archive["gitblit-${::gitblit::version}"]
+  } ->
+
   concat::fragment {"add keys for ${name}" :
     target  => "/opt/gitblit/data/ssh/${name}.keys",
     content => template('gitblit/keys.erb'),
     order   => '00',
-    require => Archive["gitblit-${::gitblit::version}"]
   } ~> Service['gitblit']
 }

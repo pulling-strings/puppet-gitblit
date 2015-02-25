@@ -1,10 +1,15 @@
 # This module manages gitblit
 class gitblit(
   $version = '1.6.2',
-  $users = {}
+  $users = {},
+  $backup = true
 ){
 
   include gitblit::config
+
+  if($backup){
+    include gitblit::backup
+  }
 
   create_resources(gitblit::user, $users)
 
