@@ -8,6 +8,8 @@ class gitblit::backup(
 
   validate_string($bucket, $pass, $user, $passphrase)
 
+  include barbecue
+
   backup::duply {'gitblit-repos':
     source      => $::gitblit::config::repo_folder,
     target      => "s3+http://${bucket}",
