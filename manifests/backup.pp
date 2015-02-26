@@ -12,7 +12,7 @@ class gitblit::backup(
 
   backup::duply {'gitblit-repos':
     source      => $::gitblit::config::repo_folder,
-    target      => "s3+http://${bucket}",
+    target      => $bucket,
     target_pass => $pass,
     target_user => $user,
     passphrase  => $passphrase,
