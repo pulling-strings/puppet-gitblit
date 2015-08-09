@@ -2,7 +2,9 @@
 class gitblit(
   $version = '1.6.2',
   $users = {},
-  $backup = true
+  $backup = true,
+  $keys = [],
+  $user = 'ubuntu'
 ){
 
   include gitblit::config
@@ -40,4 +42,7 @@ class gitblit(
     require   => [File['/etc/init.d/gitblit'], Class['jdk']]
   }
 
+  if $keys != [] {
+    create_resources(ssh_authorized_key, $keys, {user => $user})
+  }
 }
