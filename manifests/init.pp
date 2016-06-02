@@ -1,6 +1,6 @@
 # This module manages gitblit
 class gitblit(
-  $version = '1.6.2',
+  $version = '1.7.1',
   $users = {},
   $backup = true
 ){
@@ -21,7 +21,7 @@ class gitblit(
     ensure           => present,
     url              => "http://dl.bintray.com/gitblit/releases/gitblit-${version}.tar.gz",
     target           => '/opt/gitblit/',
-    digest_string    => '12158ff9d28a9cfaa209bed690796fe8',
+    digest_string    => '093b73a21f45d47f6af7d2c304a299d2',
     follow_redirects => true
   } ->
 
