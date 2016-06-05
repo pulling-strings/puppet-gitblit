@@ -1,0 +1,13 @@
+[Unit]
+SourcePath=/etc/init.d/gitblit
+
+[Service]
+ExecStart=/etc/init.d/gitblit start
+ExecStop=/etc/init.d/gitblit stop
+User=root
+Type=forking
+Restart=no
+TimeoutSec=5min
+IgnoreSIGPIPE=no
+KillMode=process
+GuessMainPID=no

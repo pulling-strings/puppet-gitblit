@@ -11,7 +11,7 @@ class gitblit::config(
     }
   }
 
-  Archive["gitblit-${::gitblit::version}"] -> Editfile <||>
+  File['/opt/gitblit'] -> Editfile <||>
 
   Editfile <||> ~> Service['gitblit']
 
