@@ -11,3 +11,6 @@ TimeoutSec=5min
 IgnoreSIGPIPE=no
 KillMode=process
 GuessMainPID=no
+
+[Install]
+WantedBy=multi-user.target
