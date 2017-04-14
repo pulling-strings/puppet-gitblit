@@ -2,14 +2,9 @@
 class gitblit(
   $version = '1.8.0',
   $users = {},
-  $backup = true
 ){
 
   include gitblit::config
-
-  if($backup){
-    include gitblit::backup
-  }
 
   create_resources(gitblit::user, $users)
 
