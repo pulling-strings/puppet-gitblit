@@ -8,6 +8,8 @@ class gitblit(
 
   create_resources(gitblit::user, $users)
 
+  File['/opt/gitblit'] -> Gitblit::User <||>
+
   class{'jdk':
     version => 7
   }
@@ -18,7 +20,7 @@ class gitblit(
     target           => '/opt/',
     digest_string    => '433a3e9ae296632f9f3d3625413f229c',
     follow_redirects => true,
-    timeout          => 900 
+    timeout          => 900
   } ->
 
   file{'/opt/gitblit':
