@@ -10,9 +10,8 @@ class gitblit(
 
   File['/opt/gitblit'] -> Gitblit::User <||>
 
-  class{'jdk':
-    version => 7
-  }
+
+  include jdk
 
   archive { "gitblit-${version}":
     ensure           => present,
